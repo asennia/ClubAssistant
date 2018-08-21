@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:paddingLeft="@dimen/game_item_left_padding"
+	android:paddingRight="@dimen/game_item_right_padding"
+	tools:ignore="RtlHardcoded"
+	android:background="@drawable/item_bg">
+
+	<ImageView
+		android:id="@+id/game_image"
+		android:layout_width="@dimen/game_image_size"
+		android:layout_height="@dimen/game_image_size"
+		android:layout_marginTop="8dp"
+		android:background="@drawable/football"
+		android:contentDescription="@string/text_description"/>
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_centerVertical="true"
+		android:layout_toRightOf="@id/game_image"
+		android:layout_marginLeft="16dp">
+
+		<RelativeLayout
+			android:id="@+id/base_info_layout"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content" >
+
+			<TextView
+				android:id="@+id/game_date"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textSize="@dimen/game_item_date_size"
+				android:textColor="@color/game_item_date_color" />
+
+			<TextView
+				android:id="@+id/game_address"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_centerHorizontal="true"
+				android:layout_alignBaseline="@id/game_date"
+				android:textSize="@dimen/game_item_address_size"
+				android:textColor="@color/game_item_address_color" />
+
+			<TextView
+				android:id="@+id/game_type"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentRight="true"
+				android:layout_marginRight="5dp"
+				android:layout_alignBaseline="@id/game_address"
+				android:textSize="@dimen/game_item_address_size"
+				android:textColor="@color/game_item_address_color"
+				tools:ignore="RelativeOverlap"/>
+
+		</RelativeLayout>
+
+		<RelativeLayout
+			android:id="@+id/player_info_layout"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@id/base_info_layout"
+			android:layout_marginTop="8dp"
+			android:layout_alignLeft="@id/base_info_layout">
+
+			<TextView
+				android:id="@+id/players_label"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentLeft="true"
+				android:textSize="@dimen/game_item_players_size"
+				android:textColor="@color/game_item_players_color"
+				android:text="@string/text_players"/>
+
+			<TextView
+				android:id="@+id/players_list"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_toRightOf="@id/players_label"
+				android:layout_marginLeft="8dp"
+				android:maxLines="1"
+				android:ellipsize="end"
+				android:textSize="@dimen/game_item_players_size"
+				android:textColor="@color/game_item_players_color" />
+
+		</RelativeLayout>
+
+	</RelativeLayout>
+
+	<!-- Separating Line -->
+	<View
+		android:id="@+id/separating_line"
+		android:layout_width="match_parent"
+		android:layout_height="0.5dp"
+		android:layout_alignParentLeft="true"
+		android:layout_below="@id/game_image"
+		android:layout_marginTop="8dp"
+		android:background="@color/line_color" />
+
+</RelativeLayout>

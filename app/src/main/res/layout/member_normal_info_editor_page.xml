@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:ignore="RtlHardcoded">
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content" >
+
+		<RelativeLayout
+			android:id="@+id/base_info_container"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center"
+			android:paddingLeft="60dp"
+			android:paddingRight="60dp"
+			android:layout_marginTop="30dp">
+
+			<RelativeLayout
+				android:id="@+id/btn_vip_container"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_centerVertical="true">
+
+				<ImageButton
+					android:id="@+id/btn_vip"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:src="@drawable/star_unselected"
+					android:background="@null"
+					android:contentDescription="@string/text_description"/>
+
+			</RelativeLayout>
+
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_toRightOf="@id/btn_vip_container"
+				android:layout_marginLeft="20dp">
+
+				<EditText
+					android:id="@+id/new_member_editor"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_centerVertical="true"
+					android:textSize="@dimen/member_editor_name_size"
+					android:textColor="@color/member_name_color"
+					android:hint="@string/text_member_call"
+					android:textColorHint="@color/hint_color"
+					android:gravity="center"
+					android:maxLength="12"
+					android:maxLines="1"
+					android:background="@null"
+					android:inputType="text"/>
+
+				<View
+					android:layout_width="match_parent"
+					android:layout_height="0.5dp"
+					android:layout_alignLeft="@id/new_member_editor"
+					android:layout_below="@id/new_member_editor"
+					android:layout_marginTop="5dp"
+					android:background="@color/line_color" />
+
+			</RelativeLayout>
+
+		</RelativeLayout>
+
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_below="@id/base_info_container"
+			android:layout_marginTop="30dp"
+			android:gravity="center">
+
+			<LinearLayout
+				android:id="@+id/item_fw"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal">
+
+				<CheckBox
+					android:id="@+id/item_fw_cb"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"/>
+
+				<TextView
+					android:id="@+id/item_fw_text"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="10dp"
+					android:textSize="@dimen/member_name_size"
+					android:textColor="@color/new_member_pos_unfocus"
+					android:text="@string/text_pos_fw"/>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:id="@+id/item_wg"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:layout_below="@id/item_fw"
+				android:layout_marginTop="@dimen/member_editor_pos_item_gap">
+
+				<CheckBox
+					android:id="@+id/item_wg_cb"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"/>
+
+				<TextView
+					android:id="@+id/item_wg_text"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="10dp"
+					android:textSize="@dimen/member_name_size"
+					android:textColor="@color/new_member_pos_unfocus"
+					android:text="@string/text_pos_wg"/>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:id="@+id/item_dm"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:layout_below="@id/item_wg"
+				android:layout_marginTop="@dimen/member_editor_pos_item_gap">
+
+				<CheckBox
+					android:id="@+id/item_dm_cb"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"/>
+
+				<TextView
+					android:id="@+id/item_dm_text"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="10dp"
+					android:textSize="@dimen/member_name_size"
+					android:textColor="@color/new_member_pos_unfocus"
+					android:text="@string/text_pos_dm"/>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:id="@+id/item_dc"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:layout_below="@id/item_dm"
+				android:layout_marginTop="@dimen/member_editor_pos_item_gap">
+
+				<CheckBox
+					android:id="@+id/item_dc_cb"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"/>
+
+				<TextView
+					android:id="@+id/item_dc_text"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="10dp"
+					android:textSize="@dimen/member_name_size"
+					android:textColor="@color/new_member_pos_unfocus"
+					android:text="@string/text_pos_dc"/>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:id="@+id/item_gk"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:layout_below="@id/item_dc"
+				android:layout_marginTop="@dimen/member_editor_pos_item_gap">
+
+				<CheckBox
+					android:id="@+id/item_gk_cb"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"/>
+
+				<TextView
+					android:id="@+id/item_gk_text"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="10dp"
+					android:textSize="@dimen/member_name_size"
+					android:textColor="@color/new_member_pos_unfocus"
+					android:text="@string/text_pos_gk"/>
+
+			</LinearLayout>
+
+		</RelativeLayout>
+
+	</RelativeLayout>
+
+</ScrollView>

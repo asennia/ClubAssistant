@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	tools:ignore="RtlHardcoded"
+	android:paddingLeft="16dp"
+	android:paddingRight="16dp"
+	android:paddingTop="4dp"
+	android:paddingBottom="4dp"
+	android:background="@drawable/item_bg">
+
+	<ImageView
+		android:id="@+id/group_logo"
+		android:layout_width="@dimen/game_detail_group_icon_size"
+		android:layout_height="@dimen/game_detail_group_icon_size"
+		android:contentDescription="@string/text_description"/>
+
+	<RelativeLayout
+		android:id="@+id/base_info_layout"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_toRightOf="@id/group_logo"
+		android:layout_marginLeft="24dp"
+		android:layout_centerVertical="true" >
+
+		<TextView
+			android:id="@+id/group_name"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textSize="@dimen/member_name_size"
+			android:textColor="#C0FF0000"/>
+
+		<TextView
+			android:id="@+id/group_member"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@id/group_name"
+			android:layout_alignParentLeft="true"
+			android:layout_marginTop="4dp"
+			android:textSize="@dimen/member_name_size"
+			android:textColor="@color/member_name_color"/>
+
+	</RelativeLayout>
+
+</RelativeLayout>

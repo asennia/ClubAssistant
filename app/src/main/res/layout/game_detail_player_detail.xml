@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:padding="36dp"
+	tools:ignore="RtlHardcoded">
+
+	<RelativeLayout
+		android:id="@+id/goal_container"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="32dp">
+
+		<TextView
+			android:id="@+id/label_goal"
+			android:layout_width="@dimen/game_detail_player_label_width"
+			android:layout_height="wrap_content"
+			android:layout_centerVertical="true"
+			android:gravity="center"
+			android:textSize="@dimen/normal_text_size"
+			android:textColor="@color/normal_name_color"
+			android:text="@string/label_goals"/>
+
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_toRightOf="@id/label_goal">
+
+			<ImageButton
+				android:id="@+id/btn_dec"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentLeft="true"
+				android:src="@drawable/icon_dec"
+				android:background="@null"
+				android:contentDescription="@string/text_description"/>
+
+			<ImageButton
+				android:id="@+id/btn_inc"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentRight="true"
+				android:src="@drawable/icon_inc"
+				android:background="@null"
+				android:contentDescription="@string/text_description"/>
+
+			<TextView
+				android:id="@+id/goal_count"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_toRightOf="@id/btn_dec"
+				android:layout_toLeftOf="@id/btn_inc"
+				android:gravity="center"
+				android:layout_alignBaseline="@id/btn_dec"
+				android:textSize="@dimen/game_detail_goal_editor_size"
+				android:textColor="@color/red_name_color"/>
+
+		</RelativeLayout>
+
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:id="@+id/cost_container"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/goal_container"
+		android:layout_marginTop="40dp"
+		android:focusable="true"
+		android:focusableInTouchMode="true">
+
+		<TextView
+			android:id="@+id/label_cost"
+			android:layout_width="@dimen/game_detail_player_label_width"
+			android:layout_height="wrap_content"
+			android:layout_centerVertical="true"
+			android:gravity="center"
+			android:textSize="@dimen/normal_text_size"
+			android:textColor="@color/normal_name_color"
+			android:text="@string/label_cost"/>
+
+		<EditText
+			android:id="@+id/cost_input"
+			android:layout_width="match_parent"
+			android:layout_height="32dp"
+			android:gravity="center"
+			android:layout_toRightOf="@id/label_cost"
+			android:maxLength="6"
+			android:inputType="numberDecimal"
+			android:textSize="@dimen/normal_text_size"
+			android:textColor="@color/normal_name_color"
+			android:background="@drawable/multiline_editor_bg"
+			tools:ignore="LabelFor"/>
+
+	</RelativeLayout>
+
+</RelativeLayout>

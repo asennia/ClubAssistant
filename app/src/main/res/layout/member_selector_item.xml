@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	tools:ignore="RtlHardcoded"
+	android:background="@drawable/player_selector_normal_bg">
+
+	<TextView
+		android:id="@+id/member_name"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_centerInParent="true"
+		android:ellipsize="middle"
+		android:textSize="@dimen/member_name_size"
+		android:textColor="@color/member_name_color"
+		android:singleLine="true"/>
+
+</RelativeLayout>
