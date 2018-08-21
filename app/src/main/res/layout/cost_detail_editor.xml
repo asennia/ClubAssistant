@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:ignore="RtlHardcoded">
+
+	<EditText
+		android:id="@+id/input_cost_detail"
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/game_cost_detail_editor_height"
+		android:layout_margin="16dp"
+		android:padding="12dp"
+		android:textSize="@dimen/game_item_date_size"
+		android:textColor="@color/game_item_date_color"
+		android:maxLength="50"
+		android:gravity="left"
+		android:background="@drawable/multiline_editor_bg"
+		android:cursorVisible="true"
+		android:inputType="text"
+		tools:ignore="LabelFor"/>
+
+</LinearLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<array name="game_type_list">
+		<item>@string/text_game_type_unknown</item>
+		<item>@string/text_game_type_train</item>
+		<item>@string/text_game_type_match</item>
+	</array>
+
+	<array name="group_capacity_list">
+		<item>"4"</item>
+		<item>"5"</item>
+		<item>"6"</item>
+		<item>"7"</item>
+		<item>"8"</item>
+	</array>
+
+</resources>

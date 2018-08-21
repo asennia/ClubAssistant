@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:padding="@dimen/game_list_padding"
+	android:background="@drawable/item_bg">
+
+	<android.support.v7.widget.RecyclerView
+		android:id="@+id/game_container"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_gravity="center_horizontal|top"
+		android:clipToPadding="false"
+		android:focusable="true" />
+
+	<RelativeLayout
+		android:id="@+id/empty_content"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:visibility="gone">
+
+		<TextView
+			android:id="@+id/empty_text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerInParent="true"
+			android:text="@string/text_empty_record"
+			android:textColor="@color/hint_color"
+			android:textSize="@dimen/empty_text_size"/>
+
+		<ImageView
+			android:id="@+id/empty_icon"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true"
+			android:layout_above="@id/empty_text"
+			android:layout_marginBottom="10dp"
+			android:src="@drawable/empty_record"
+			android:contentDescription="@string/text_description"/>
+
+	</RelativeLayout>
+
+</RelativeLayout>

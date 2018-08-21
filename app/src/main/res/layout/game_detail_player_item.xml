@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="wrap_content"
+	android:layout_height="96dp"
+	tools:ignore="RtlHardcoded"
+	android:background="@drawable/item_bg">
+
+	<ImageView
+		android:id="@+id/player_photo"
+		android:layout_width="@dimen/member_photo_size"
+		android:layout_height="@dimen/member_photo_size"
+		android:layout_marginLeft="@dimen/member_view_left_margin"
+		android:layout_centerVertical="true"
+		android:background="@drawable/icon_player"
+		android:contentDescription="@string/text_description"/>
+
+	<RelativeLayout
+		android:id="@+id/base_info_layout"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_toRightOf="@id/player_photo"
+		android:layout_marginLeft="@dimen/member_view_left_margin"
+		android:layout_centerVertical="true" >
+
+		<TextView
+			android:id="@+id/player_name"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="4dp"
+			android:textSize="@dimen/member_name_size"
+			android:textColor="@color/member_name_color"/>
+
+		<RelativeLayout
+			android:id="@+id/goal_info"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@id/player_name"
+			android:layout_marginTop="6dp"
+			android:layout_alignLeft="@id/player_name">
+
+			<ImageView
+				android:id="@+id/goal_icon"
+				android:layout_width="@dimen/game_detail_player_goal_icon_size"
+				android:layout_height="@dimen/game_detail_player_goal_icon_size"
+				android:src="@drawable/icon_goal"
+				android:contentDescription="@string/text_description" />
+
+			<TextView
+				android:id="@+id/goal_content"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:maxLength="2"
+				android:layout_toRightOf="@id/goal_icon"
+				android:layout_marginLeft="8dp"
+				android:textSize="@dimen/member_position_size"
+				android:textColor="@color/member_position_color"/>
+
+		</RelativeLayout>
+
+		<RelativeLayout
+			android:id="@+id/cost_info"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@id/goal_info"
+			android:layout_marginTop="6dp"
+			android:layout_alignLeft="@id/goal_info">
+
+			<ImageView
+				android:id="@+id/cost_icon"
+				android:layout_width="@dimen/game_detail_player_goal_icon_size"
+				android:layout_height="@dimen/game_detail_player_goal_icon_size"
+				android:src="@drawable/icon_cost"
+				android:contentDescription="@string/text_description" />
+
+			<TextView
+				android:id="@+id/cost_content"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:maxLength="5"
+				android:layout_toRightOf="@id/cost_icon"
+				android:layout_marginLeft="8dp"
+				android:textSize="@dimen/member_position_size"
+				android:textColor="@color/member_position_color"/>
+
+		</RelativeLayout>
+
+	</RelativeLayout>
+
+</RelativeLayout>

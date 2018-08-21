@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:ignore="RtlHardcoded">
+
+	<!-- Title bar -->
+	<android.support.v7.widget.Toolbar
+		android:id="@+id/toolbar"
+		android:layout_width="match_parent"
+		android:layout_height="?attr/actionBarSize"
+		android:background="?attr/colorPrimary"
+		app:popupTheme="@style/AppTheme.PopupOverlay" >
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/text_game_detail"
+			android:textSize="@dimen/title_bar_title_text_size"
+			android:textColor="#FFFFFFFF"/>
+
+		<Button
+			android:id="@+id/btn_edit"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="right"
+			android:text="@string/text_edit"
+			android:textSize="@dimen/title_bar_action_text_size"
+			android:textColor="@drawable/title_bar_action_bg"
+			android:background="@null"/>
+
+	</android.support.v7.widget.Toolbar>
+
+	<!-- Base info layout -->
+	<RelativeLayout
+		android:id="@+id/base_info_layout"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/toolbar"
+		android:paddingTop="12dp"
+		android:paddingBottom="12dp"
+		android:background="@color/color_base_info_bg"
+		android:baselineAligned="false"
+		android:gravity="center">
+
+		<LinearLayout
+			android:id="@+id/label_layout"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:layout_alignParentLeft="true">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textSize="@dimen/normal_text_size"
+				android:textColor="@color/normal_name_color"
+				android:text="@string/label_date"/>
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/game_detail_normal_top_margin"
+				android:textSize="@dimen/normal_text_size"
+				android:textColor="@color/normal_name_color"
+				android:text="@string/label_address"/>
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/game_detail_normal_top_margin"
+				android:textSize="@dimen/normal_text_size"
+				android:textColor="@color/normal_name_color"
+				android:text="@string/label_game_type"/>
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/game_detail_normal_top_margin"
+				android:textSize="@dimen/normal_text_size"
+				android:textColor="@color/normal_name_color"
+				android:text="@string/label_total_cost"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:layout_toRightOf="@id/label_layout"
+			android:layout_marginLeft="24dp">
+
+			<TextView
+				android:id="@+id/date_content"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textSize="@dimen/normal_text_size"
+				android:textColor="@color/green_name_color"/>
+
+			<TextView
+				android:id="@+id/address_content"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/game_detail_normal_top_margin"
+				android:textSize="@dimen/normal_text_size"
+				android:textColor="@color/green_name_color"/>
+
+			<TextView
+				android:id="@+id/game_type_content"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/game_detail_normal_top_margin"
+				android:textSize="@dimen/normal_text_size"
+				android:textColor="@color/green_name_color"/>
+
+			<RelativeLayout
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/game_detail_normal_top_margin">
+
+				<TextView
+					android:id="@+id/total_cost_content"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textSize="@dimen/normal_text_size"
+					android:textColor="@color/green_name_color"/>
+
+				<TextView
+					android:id="@+id/btn_show_reader_detail"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_toRightOf="@id/total_cost_content"
+					android:layout_marginLeft="20dp"
+					android:textSize="@dimen/normal_text_size"
+					android:textColor="@drawable/text_link_color"
+					android:text="@string/text_show_cost_detail" />
+
+			</RelativeLayout>
+
+		</LinearLayout>
+
+	</RelativeLayout>
+
+	<!-- Group and player list -->
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_below="@id/base_info_layout">
+
+		<android.support.design.widget.TabLayout
+			android:id="@+id/tabs"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"/>
+
+		<android.support.v4.view.ViewPager
+			android:id="@+id/pager"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_below="@id/tabs"
+			app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+	</RelativeLayout>
+
+</RelativeLayout>

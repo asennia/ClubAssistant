@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="colorPrimary">#373739</color>
+	<color name="colorPrimaryDark">#242426</color>
+	<color name="colorAccent">#FFF4A72B</color>
+
+	<color name="line_color">#60808080</color>
+	<color name="hint_color">#80808080</color>
+	<color name="color_base_info_bg">#203F51B5</color>
+
+	<color name="normal_name_color">#FF131313</color>
+	<color name="green_name_color">#38810e</color>
+	<color name="red_name_color">#ff0000</color>
+
+	<color name="text_link_normal_color">#cafa6d6d</color>
+	<color name="text_link_pressed_color">#ff0000</color>
+	<color name="disable_text_color">#60808080</color>
+
+	<color name="pressed_title_text_color">#FF56C715</color>
+	<color name="normal_title_text_color">#FFFFFFFF</color>
+	<color name="disable_title_text_color">#80FFFFFF</color>
+
+	<!-- Member -->
+	<color name="member_photo_bg">#FFF4A72B</color>
+	<color name="member_name_color">#FF131313</color>
+	<color name="member_position_color">#FF494949</color>
+
+	<color name="new_member_pos_unfocus">#b0808080</color>
+	<color name="new_member_pos_focused">#FF131313</color>
+
+	<!-- Game -->
+	<color name="game_item_date_color">#FF131313</color>
+	<color name="game_item_address_color">#FF131313</color>
+	<color name="game_item_type_color">#FF131313</color>
+	<color name="game_item_players_color">#FF494949</color>
+	<color name="game_item_mvp_label_color">#FF494949</color>
+	<color name="game_item_mvp_name_color">#C0FF0000</color>
+</resources>

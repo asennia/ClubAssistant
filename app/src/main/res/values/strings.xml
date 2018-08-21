@@ -1,0 +1,108 @@
+<resources>
+	<string name="app_name">球队管家</string>
+
+	<!-- Common -->
+	<string name="text_add">新增</string>
+	<string name="text_cancel">取消</string>
+	<string name="text_description">图片</string>
+	<string name="text_discard">丢弃</string>
+	<string name="text_edit">编辑</string>
+	<string name="text_remove">删除</string>
+	<string name="text_complete">完成</string>
+	<string name="text_manage">管理</string>
+	<string name="text_import">导入</string>
+	<string name="text_export">导出</string>
+	<string name="text_ok">确定</string>
+	<string name="text_save">保存</string>
+	<string name="text_select_all">全选</string>
+	<string name="text_settings">设置</string>
+	<string name="text_unknown">未知</string>
+	<string name="text_unselect_all">全不选</string>
+
+	<!-- Main -->
+	<string name="text_members">成员</string>
+	<string name="text_games">活动</string>
+	<string name="text_history">历史</string>
+	<string name="drawer_open">打开侧边栏</string>
+	<string name="drawer_close">关闭侧边栏</string>
+	<string name="text_empty_record">目前没有记录</string>
+	<string name="text_empty_member">目前没有人员</string>
+	<string name="text_data_import">数据导入</string>
+	<string name="text_data_export">数据导出</string>
+	<string name="text_data_not_found">没有可用的数据</string>
+	<string name="text_storage_not_ready">存储设备尚未初始化</string>
+	<string name="text_can_not_read_storage">没有读取数据权限</string>
+
+	<!-- Member -->
+	<string name="text_pos_fw">前锋</string>
+	<string name="text_pos_wg">边锋</string>
+	<string name="text_pos_dm">后腰</string>
+	<string name="text_pos_dc">后卫</string>
+	<string name="text_pos_gk">门将</string>
+	<string name="text_member_call">称呼</string>
+	<string name="text_speed">速度</string>
+	<string name="text_strength">力量</string>
+	<string name="text_defence">防守</string>
+	<string name="text_tech">技术</string>
+	<string name="text_pass">传球</string>
+	<string name="text_shoot">射门</string>
+	<string name="text_member_detail">人员详情</string>
+	<string name="text_add_extra">添加散客</string>
+	<string name="label_pos">位置：</string>
+	<string name="label_played_times">出场：</string>
+	<string name="label_goals">进球：</string>
+	<string name="text_goals">进球</string>
+
+	<!-- Game -->
+	<string name="text_game_type_train">内部训练</string>
+	<string name="text_game_type_match">外战</string>
+	<string name="text_game_type_unknown">未知比赛</string>
+	<string name="text_date">日期</string>
+	<string name="label_date">日期：</string>
+	<string name="text_address">地点</string>
+	<string name="label_address">地点：</string>
+	<string name="text_game_type">比赛性质</string>
+	<string name="label_game_type">比赛性质：</string>
+	<string name="text_mvp">MVP</string>
+	<string name="label_mvp">MVP：</string>
+	<string name="text_total_cost">总费用</string>
+	<string name="label_total_cost">总费用：</string>
+	<string name="text_cost_detail">费用详情</string>
+	<string name="label_cost_detail">费用详情：</string>
+	<string name="text_show_cost_detail">查看费用详情</string>
+	<string name="text_no_player">无人参加</string>
+	<string name="text_players">人员</string>
+	<string name="text_nobody">无</string>
+	<string name="text_hit_to_setup">点击设置</string>
+	<string name="text_hit_to_input">点击输入</string>
+	<string name="text_type_select">选择比赛性质</string>
+	<string name="text_player_select">人员选择</string>
+	<string name="text_join_symbol">"、"</string>
+	<string name="text_game_detail">活动详情</string>
+	<string name="text_action_group">自动分组</string>
+	<string name="text_redo_group">重新分组</string>
+	<string name="symbol_dec">"—"</string>
+	<string name="symbol_inc">"+"</string>
+	<string name="label_cost">费用：</string>
+	<string name="text_cost">费用</string>
+	<string name="text_group">分组</string>
+	<string name="text_group_name">组</string>
+	<string name="text_out_of_group">未分组人员</string>
+	<string name="text_empty_group">尚未分组</string>
+	<string name="text_set_capacity_of_group">设置每组人数</string>
+
+	<!-- History -->
+	<string name="label_game_count">活动场次：</string>
+	<string name="label_total_goals">总进球数：</string>
+	<string name="label_remain_capital">经费结余：</string>
+	<string name="text_scorer_list">射手榜</string>
+	<string name="label_index">排名</string>
+	<string name="label_player">球员</string>
+	<string name="text_attendance_list">出勤榜</string>
+	<string name="text_attendance">出勤次数</string>
+	<string name="text_profit_detail">经费明细</string>
+	<string name="text_cost_in">收入</string>
+	<string name="text_cost_out">支出</string>
+	<string name="text_remain">结余</string>
+
+</resources>

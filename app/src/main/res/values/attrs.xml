@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<declare-styleable name="BottomBar">
+		<attr name="left_btn_text" format="string" />
+		<attr name="center_btn_text" format="string" />
+		<attr name="right_btn_text" format="string" />
+	</declare-styleable>
+</resources>
