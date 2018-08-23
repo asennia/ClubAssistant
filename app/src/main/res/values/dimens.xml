@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 	<!-- Default screen margins, per the Android Design guidelines. -->
 	<dimen name="activity_horizontal_margin">16dp</dimen>
 	<dimen name="activity_vertical_margin">16dp</dimen>
@@ -86,4 +86,7 @@
 	<dimen name="history_attendance_width">120dp</dimen>
 	<dimen name="history_profit_item_height">48dp</dimen>
 	<dimen name="history_profit_in_out_width">70dp</dimen>
+
+	<dimen name="design_bottom_navigation_active_text_size" tools:ignore="PrivateResource">14dp</dimen>
+	<dimen name="design_bottom_navigation_text_size" tools:ignore="PrivateResource">14dp</dimen>
 </resources>
