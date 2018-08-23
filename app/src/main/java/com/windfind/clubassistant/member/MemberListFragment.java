@@ -31,6 +31,10 @@ public class MemberListFragment extends PageFragment {
 	public MemberListFragment() {
 	}
 
+	public static MemberListFragment newInstance() {
+		return new MemberListFragment();
+	}
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

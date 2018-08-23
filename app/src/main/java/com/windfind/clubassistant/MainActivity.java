@@ -4,20 +4,22 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.BottomNavigationView.OnNavigationItemSelectedListener;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.windfind.clubassistant.common.CommonPagerAdapter;
-import com.windfind.clubassistant.common.MyBottomBar;
 import com.windfind.clubassistant.game.GameListFragment;
 import com.windfind.clubassistant.history.HistoryListFragment;
 import com.windfind.clubassistant.member.MemberListFragment;
@@ -28,15 +30,43 @@ public class MainActivity extends AppCompatActivity {
 	public static final int ACTION_EXPORT = 2;
 
 	private DrawerLayout mDrawer;
-	private MyBottomBar mBottomBar;
+	private BottomNavigationView mBottomBar;
+	private ViewPager mViewPager;
+	private CommonPagerAdapter mAdapter;
 
 	private String mVersionCode = "Unknown";
+	private boolean mIsScrolledByUser;
+
+	OnNavigationItemSelectedListener  mListener = new OnNavigationItemSelectedListener() {
+		@Override
+		public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+			boolean ret = false;
+
+			switch (item.getItemId()) {
+				case R.id.tab_member:
+					mViewPager.setCurrentItem(0);
+					ret = true;
+					break;
+				case R.id.tab_game:
+					mViewPager.setCurrentItem(1);
+					ret = true;
+					break;
+				case R.id.tab_record:
+					mViewPager.setCurrentItem(2);
+					ret = true;
+					break;
+			}
+
+			return ret;
+		}
+	};
 
 	@SuppressWarnings("deprecation")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
+		Context context = getApplicationContext();
 		setContentView(R.layout.activity_main);
 		mDrawer = findViewById(R.id.main_content);
 
@@ -48,8 +78,46 @@ public class MainActivity extends AppCompatActivity {
 		toggle.syncState();
 
 		mBottomBar = findViewById(R.id.bottom_bar);
-		mBottomBar.setContainer(R.id.fl_container);
-		mBottomBar.setTitleBeforeAndAfterColor("#333333", "#ff3d3e");
+		mBottomBar.setOnNavigationItemSelectedListener(mListener);
+
+		mAdapter = new CommonPagerAdapter(context, getSupportFragmentManager());
+		mViewPager = findViewById(R.id.container);
+		mViewPager.setAdapter(mAdapter);
+		mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+			@Override
+			public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+			}
+
+			@Override
+			public void onPageSelected(int position) {
+				if (!mIsScrolledByUser) {
+					return;
+				}
+				switch (position) {
+					case 0:
+						mBottomBar.setSelectedItemId(R.id.tab_member);
+						break;
+					case 1:
+						mBottomBar.setSelectedItemId(R.id.tab_game);
+						break;
+					case 2:
+						mBottomBar.setSelectedItemId(R.id.tab_record);
+						break;
+				}
+			}
+
+			@Override
+			public void onPageScrollStateChanged(int state) {
+				switch (state) {
+					case ViewPager.SCROLL_STATE_IDLE:
+						mIsScrolledByUser = false;
+						break;
+					case ViewPager.SCROLL_STATE_DRAGGING:
+						mIsScrolledByUser = true;
+						break;
+				}
+			}
+		});
 
 		WindowManager wm = getWindowManager();
 		CAApplication.sDeviceWidth = wm.getDefaultDisplay().getWidth();
@@ -80,23 +148,15 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	private void createAndSetFragments() {
-		mBottomBar.addItem(
-				MemberListFragment.class,
-				getString(R.string.text_members),
-				R.drawable.item1_before,
-				R.drawable.item1_after);
-		mBottomBar.addItem(
-				GameListFragment.class,
-				getString(R.string.text_games),
-				R.drawable.item2_before,
-				R.drawable.item2_after);
-		mBottomBar.addItem(
-				HistoryListFragment.class,
-				getString(R.string.text_history),
-				R.drawable.item3_before,
-				R.drawable.item3_after);
+		MemberListFragment memberList = MemberListFragment.newInstance();
+		GameListFragment gameList = GameListFragment.newInstance();
+		HistoryListFragment recordList = HistoryListFragment.newInstance();
 
-		mBottomBar.build();
+		mAdapter.addItem(memberList);
+		mAdapter.addItem(gameList);
+		mAdapter.addItem(recordList);
+
+		mAdapter.notifyDataSetChanged();
 	}
 
 	@Override

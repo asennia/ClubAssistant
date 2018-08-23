@@ -45,6 +45,10 @@ public class HistoryListFragment extends PageFragment {
 
 	private static final int MSG_LOAD_FINISH = 100;
 
+	public static HistoryListFragment newInstance() {
+		return new HistoryListFragment();
+	}
+
 	private static class MyHandler extends Handler {
 		private static WeakReference<HistoryListFragment> mFragment;
 

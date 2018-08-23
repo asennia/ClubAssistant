@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<item
+		android:id="@+id/tab_member"
+		android:icon="@drawable/icon_main_player"
+		android:title="@string/text_members"/>
+	<item
+		android:id="@+id/tab_game"
+		android:icon="@drawable/icon_main_game"
+		android:title="@string/text_games"/>
+	<item
+		android:id="@+id/tab_record"
+		android:icon="@drawable/icon_main_record"
+		android:title="@string/text_history"/>
+
+</menu>

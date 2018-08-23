@@ -33,6 +33,10 @@ public class GameListFragment extends PageFragment {
 	public GameListFragment() {
 	}
 
+	public static GameListFragment newInstance() {
+		return new GameListFragment();
+	}
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
