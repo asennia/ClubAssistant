@@ -1,22 +1,33 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion '27.0.3'
+    compileSdkVersion 29
     defaultConfig {
         applicationId "com.windfind.clubassistant"
         minSdkVersion 19
-        targetSdkVersion 26
-        versionCode 5
-        versionName "V1.05"
+        targetSdkVersion 29
+        versionCode 8
+        versionName "V1.08"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    signingConfigs {
+        config {
+            storeFile file('signature/KeyForAllen.jks')
+            storePassword 'KeyForAllen'
+            keyAlias 'key0'
+            keyPassword 'KeyForAllen'
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
         }
     }
+
     // 打包后应用名称
     android.applicationVariants.all { variant ->
         variant.outputs.all {

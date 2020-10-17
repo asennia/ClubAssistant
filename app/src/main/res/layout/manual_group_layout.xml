@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:paddingTop="10dp"
+	tools:ignore="HardcodedText">
+
+	<!-- 分组列表 -->
+	<LinearLayout
+		android:id="@+id/group_container"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:layout_alignParentBottom="true">
+
+		<LinearLayout
+			android:id="@+id/group_a_container"
+			android:layout_width="match_parent"
+			android:layout_height="65dp"
+			android:orientation="vertical"
+			android:padding="5dp"
+			android:background="#20FF0000">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_horizontal"
+				android:textSize="18sp"
+				android:textColor="#FF000000"
+				android:text="A组"/>
+
+			<android.support.v7.widget.RecyclerView
+				android:id="@+id/group_a"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/group_b_container"
+			android:layout_width="match_parent"
+			android:layout_height="65dp"
+			android:orientation="vertical"
+			android:padding="5dp"
+			android:background="#2000FF00">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_horizontal"
+				android:textSize="18sp"
+				android:textColor="#FF000000"
+				android:text="B组"/>
+
+			<android.support.v7.widget.RecyclerView
+				android:id="@+id/group_b"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/group_c_container"
+			android:layout_width="match_parent"
+			android:layout_height="65dp"
+			android:orientation="vertical"
+			android:padding="5dp"
+			android:background="#200000FF">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_horizontal"
+				android:textSize="18sp"
+				android:textColor="#FF000000"
+				android:text="C组"/>
+
+			<android.support.v7.widget.RecyclerView
+				android:id="@+id/group_c"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/group_d_container"
+			android:layout_width="match_parent"
+			android:layout_height="65dp"
+			android:orientation="vertical"
+			android:padding="5dp"
+			android:background="#20FFFF00">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_horizontal"
+				android:textSize="18sp"
+				android:textColor="#FF000000"
+				android:text="D组"/>
+
+			<android.support.v7.widget.RecyclerView
+				android:id="@+id/group_d"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"/>
+
+		</LinearLayout>
+
+	</LinearLayout>
+
+	<!-- 候选列表 -->
+	<android.support.v7.widget.RecyclerView
+		android:id="@+id/candidates"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_above="@id/group_container"
+		android:layout_marginBottom="10dp"
+		android:focusable="true" />
+
+</RelativeLayout>

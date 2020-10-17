@@ -3,15 +3,15 @@
 
 	<item
 		android:id="@+id/tab_member"
-		android:icon="@drawable/icon_main_player"
+		android:icon="@drawable/ic_player_24dp"
 		android:title="@string/text_members"/>
 	<item
 		android:id="@+id/tab_game"
-		android:icon="@drawable/icon_main_game"
+		android:icon="@drawable/ic_game_24dp"
 		android:title="@string/text_games"/>
 	<item
 		android:id="@+id/tab_record"
-		android:icon="@drawable/icon_main_record"
+		android:icon="@drawable/ic_stat_24dp"
 		android:title="@string/text_history"/>
 
 </menu>

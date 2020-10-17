@@ -15,4 +15,10 @@
 		<item>"8"</item>
 	</array>
 
+	<array name="group_count_list">
+		<item>"2"</item>
+		<item>"3"</item>
+		<item>"4"</item>
+	</array>
+
 </resources>

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.util.LongSparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,6 +42,13 @@ public class GameDetailGroupListFragment extends PageFragment {
 	private int mCapacityIndex = 1;
 	private int mGroupMemberSize = 5;
 
+	private String[] mCountList;
+	private int mGroupCntIndex = 0;
+	private int mGroupCnt = 2;
+	private int mCurSelectedIndex = -1;
+
+	private boolean mIsAutoGroup = true;
+
 	public static GameDetailGroupListFragment newInstance() {
 		return new GameDetailGroupListFragment();
 	}
@@ -61,6 +69,7 @@ public class GameDetailGroupListFragment extends PageFragment {
 		mIsReady = true;
 
 		mCapacityList = getResources().getStringArray(R.array.group_capacity_list);
+		mCountList = getResources().getStringArray(R.array.group_count_list);
 	}
 
 	@Override
@@ -93,16 +102,24 @@ public class GameDetailGroupListFragment extends PageFragment {
 		mEmptyView = rootView.findViewById(R.id.empty_content);
 
 		mBottomBar = rootView.findViewById(R.id.bottom_bar);
-		mBottomBar.setLeftButtonVisible(false);
 		mBottomBar.setCenterButtonVisible(true);
 		if (mBottomBar != null) {
-			mBottomBar.setRightButtonVisible(false);
+			mBottomBar.setLeftButtonListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View view) {
+					doManualDivideToGroup();
+					mIsAutoGroup = false;
+				}
+			});
+
 			mBottomBar.setCenterButtonListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					doDivideToGroup();
+					doAutoDivideToGroup();
 				}
 			});
+
+			mBottomBar.setRightButtonVisible(false);
 			mBottomBar.setRightButtonListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
@@ -163,7 +180,7 @@ public class GameDetailGroupListFragment extends PageFragment {
 		mGameData = game;
 	}
 
-	private void doDivideToGroup() {
+	private void doAutoDivideToGroup() {
 		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 		builder.setTitle(R.string.text_set_capacity_of_group);
 		builder.setSingleChoiceItems(mCapacityList, mCapacityIndex, new DialogInterface.OnClickListener() {
@@ -176,14 +193,14 @@ public class GameDetailGroupListFragment extends PageFragment {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				mGroupMemberSize = Integer.parseInt(mCapacityList[mCapacityIndex]);
-				startDivideToGroup();
+				startAutoDivideToGroup();
 			}
 		});
 		builder.setNegativeButton(R.string.text_cancel, null);
 		builder.create().show();
 	}
 
-	private void startDivideToGroup() {
+	private void startAutoDivideToGroup() {
 		if (mGameData == null || mGameData.mPlayers == null || mGameData.mPlayers.isEmpty()) {
 			return;
 		}
@@ -227,7 +244,7 @@ public class GameDetailGroupListFragment extends PageFragment {
 		int totalCount = playersWithOrder.size();
 
 		if (totalCount % mGroupMemberSize == 0) {
-			ArrayList<GroupDetail> gd = doDivideToGroupWithNoRemain(playersWithOrder);
+			ArrayList<GroupDetail> gd = doAutoDivideToGroupWithNoRemain(playersWithOrder);
 			mGroups.addAll(gd);
 		} else {
 			// 分完之后会有未分组人员，首先抽出多出来的人员，然后再抽出各组
@@ -269,7 +286,7 @@ public class GameDetailGroupListFragment extends PageFragment {
 				playersWithOrder.remove(player);
 			}
 
-			ArrayList<GroupDetail> gd = doDivideToGroupWithNoRemain(playersWithOrder);
+			ArrayList<GroupDetail> gd = doAutoDivideToGroupWithNoRemain(playersWithOrder);
 			if (gd != null) {
 				mGroups.addAll(gd);
 				excludeGroup.mGroupIndex = gd.size() + 1;
@@ -302,7 +319,7 @@ public class GameDetailGroupListFragment extends PageFragment {
 		onGroupFinish();
 	}
 
-	private ArrayList<GroupDetail> doDivideToGroupWithNoRemain(ArrayList<MemberBean> list) {
+	private ArrayList<GroupDetail> doAutoDivideToGroupWithNoRemain(ArrayList<MemberBean> list) {
 		if (list == null || list.isEmpty()) {
 			return null;
 		}
@@ -359,6 +376,250 @@ public class GameDetailGroupListFragment extends PageFragment {
 		return groups;
 	}
 
+	private void doManualDivideToGroup() {
+		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+		builder.setTitle(R.string.text_set_count_of_group);
+		builder.setSingleChoiceItems(mCountList, mGroupCntIndex, new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				mGroupCntIndex = which;
+			}
+		});
+		builder.setPositiveButton(R.string.text_ok, new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				mGroupCnt = Integer.parseInt(mCountList[mGroupCntIndex]);
+				startManualDivideToGroup();
+			}
+		});
+		builder.setNegativeButton(R.string.text_cancel, null);
+		builder.create().show();
+	}
+
+	@SuppressWarnings("ConstantConditions")
+	private void startManualDivideToGroup() {
+		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+		builder.setView(R.layout.manual_group_layout);
+//		builder.setTitle(R.string.text_action_group_manual);
+//		builder.setSingleChoiceItems(mCapacityList, mCapacityIndex, new DialogInterface.OnClickListener() {
+//			@Override
+//			public void onClick(DialogInterface dialog, int which) {
+//				mCapacityIndex = which;
+//			}
+//		});
+//		builder.setPositiveButton(R.string.text_ok, new DialogInterface.OnClickListener() {
+//			@Override
+//			public void onClick(DialogInterface dialog, int which) {
+//				mGroupMemberSize = Integer.parseInt(mCapacityList[mCapacityIndex]);
+//				startAutoDivideToGroup();
+//			}
+//		});
+		builder.setNegativeButton(R.string.text_cancel, null);
+		builder.setPositiveButton(R.string.text_save, new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialogInterface, int i) {
+				onGroupFinish();
+			}
+		});
+		AlertDialog dialog = builder.create();
+		dialog.show();
+
+		final ArrayList<MemberBean> candidates = getAllCandidates();
+
+		final View groupAContainer = dialog.findViewById(R.id.group_a_container);
+		final View groupBContainer = dialog.findViewById(R.id.group_b_container);
+		final View groupCContainer = dialog.findViewById(R.id.group_c_container);
+		final View groupDContainer = dialog.findViewById(R.id.group_d_container);
+		if (mGroupCnt == 2) {
+			groupCContainer.setVisibility(View.GONE);
+			groupDContainer.setVisibility(View.GONE);
+		} else if (mGroupCnt == 3) {
+			groupDContainer.setVisibility(View.GONE);
+		}
+
+		for (int i = 0; i < mGroupCnt; i++) {
+			GroupDetail group = new GroupDetail();
+			mGroups.add(group);
+		}
+
+		RecyclerView groupAList = dialog.findViewById(R.id.group_a);
+		final PushedListAdapter groupAAdapter = new PushedListAdapter(mContext);
+		groupAList.setAdapter(groupAAdapter);
+		RecyclerView.LayoutManager lm = new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false);
+		groupAList.setLayoutManager(lm);
+
+		RecyclerView groupBList = dialog.findViewById(R.id.group_b);
+		final PushedListAdapter groupBAdapter = new PushedListAdapter(mContext);
+		groupBList.setAdapter(groupBAdapter);
+		lm = new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false);
+		groupBList.setLayoutManager(lm);
+
+		RecyclerView groupCList = dialog.findViewById(R.id.group_c);
+		final PushedListAdapter groupCAdapter = new PushedListAdapter(mContext);
+		groupCList.setAdapter(groupCAdapter);
+		lm = new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false);
+		groupCList.setLayoutManager(lm);
+
+		RecyclerView groupDList = dialog.findViewById(R.id.group_d);
+		final PushedListAdapter groupDAdapter = new PushedListAdapter(mContext);
+		groupDList.setAdapter(groupDAdapter);
+		lm = new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false);
+		groupDList.setLayoutManager(lm);
+
+
+		RecyclerView candidateList = dialog.findViewById(R.id.candidates);
+		final CandidateListAdapter adapter = new CandidateListAdapter(mContext);
+		candidateList.setAdapter(adapter);
+		lm = new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false);
+		candidateList.setLayoutManager(lm);
+
+		adapter.setOnCandidateClickListener(new CandidateListAdapter.OnCandidateSelectListener() {
+			@Override
+			public void onCandidateClick(int index) {
+				mCurSelectedIndex = index;
+			}
+		});
+
+		groupAAdapter.setOnItemClickedListener(new PushedListAdapter.OnItemClickedListener() {
+			@Override
+			public void onItemClicked(MemberBean data) {
+				groupAAdapter.pop(data);
+                mGroups.get(0).mGroupMember.remove(data);
+
+				int index = candidates.indexOf(data);
+				adapter.onCandidatePop(index);
+			}
+		});
+
+		groupBAdapter.setOnItemClickedListener(new PushedListAdapter.OnItemClickedListener() {
+			@Override
+			public void onItemClicked(MemberBean data) {
+				groupBAdapter.pop(data);
+                mGroups.get(1).mGroupMember.remove(data);
+
+				int index = candidates.indexOf(data);
+				adapter.onCandidatePop(index);
+			}
+		});
+
+		groupCAdapter.setOnItemClickedListener(new PushedListAdapter.OnItemClickedListener() {
+			@Override
+			public void onItemClicked(MemberBean data) {
+				groupCAdapter.pop(data);
+                mGroups.get(2).mGroupMember.remove(data);
+
+				int index = candidates.indexOf(data);
+				adapter.onCandidatePop(index);
+			}
+		});
+
+		groupDAdapter.setOnItemClickedListener(new PushedListAdapter.OnItemClickedListener() {
+			@Override
+			public void onItemClicked(MemberBean data) {
+				groupDAdapter.pop(data);
+                mGroups.get(3).mGroupMember.remove(data);
+
+				int index = candidates.indexOf(data);
+				adapter.onCandidatePop(index);
+			}
+		});
+
+		groupAContainer.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				Log.i("Andy", "mCurSelectedIndex = " + mCurSelectedIndex);
+				if (mCurSelectedIndex >= 0 && mCurSelectedIndex < candidates.size()) {
+					MemberBean bean = candidates.get(mCurSelectedIndex);
+					mGroups.get(0).mGroupMember.add(bean);
+					adapter.onCandidatePush(mCurSelectedIndex);
+					mCurSelectedIndex = -1;
+
+					groupAAdapter.push(bean);
+				}
+			}
+		});
+
+		groupBContainer.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				if (mCurSelectedIndex >= 0 && mCurSelectedIndex < candidates.size()) {
+					MemberBean bean = candidates.get(mCurSelectedIndex);
+					mGroups.get(1).mGroupMember.add(bean);
+					adapter.onCandidatePush(mCurSelectedIndex);
+					mCurSelectedIndex = -1;
+
+					groupBAdapter.push(bean);
+				}
+			}
+		});
+
+		groupCContainer.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				if (mCurSelectedIndex >= 0 && mCurSelectedIndex < candidates.size()) {
+					MemberBean bean = candidates.get(mCurSelectedIndex);
+					mGroups.get(2).mGroupMember.add(bean);
+					adapter.onCandidatePush(mCurSelectedIndex);
+					mCurSelectedIndex = -1;
+
+					groupCAdapter.push(bean);
+				}
+			}
+		});
+
+		groupDContainer.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				if (mCurSelectedIndex >= 0 && mCurSelectedIndex < candidates.size()) {
+					MemberBean bean = candidates.get(mCurSelectedIndex);
+					mGroups.get(3).mGroupMember.add(bean);
+					adapter.onCandidatePush(mCurSelectedIndex);
+					mCurSelectedIndex = -1;
+
+					groupDAdapter.push(bean);
+				}
+			}
+		});
+
+		if (candidates != null) {
+			adapter.setData(candidates);
+		}
+	}
+
+	private ArrayList<MemberBean> getAllCandidates() {
+		if (mGameData == null || mGameData.mPlayers == null || mGameData.mPlayers.isEmpty()) {
+			return null;
+		}
+
+		ArrayList<Long> playerIds = new ArrayList<>();
+		ArrayList<MemberBean> extraPlayers = new ArrayList<>();
+		for (PlayerDataBean data : mGameData.mPlayers) {
+			if (data.mMemberId > 0) {
+				playerIds.add(data.mMemberId);
+			} else {
+				MemberBean bean = MemberBean.buildExtraPlayer(getActivity(), data.mName);
+				extraPlayers.add(bean);
+			}
+		}
+
+		LongSparseArray<MemberBean> players = mModel.getMembersById(playerIds);
+		if (players == null || players.size() == 0) {
+			return null;
+		}
+
+		int playerCount = players.size();
+		ArrayList<MemberBean> candidates = new ArrayList<>();
+		for (int i = 0; i < playerCount; i++) {
+			candidates.add(players.valueAt(i));
+		}
+
+		if (!extraPlayers.isEmpty()) {
+			candidates.addAll(extraPlayers);
+		}
+
+		return candidates;
+	}
+
 	private void onGroupFinish() {
 		if (mGroups == null || mGroups.isEmpty()) {
 			return;
@@ -366,8 +627,13 @@ public class GameDetailGroupListFragment extends PageFragment {
 
 		setData(mGroups);
 
+		mBottomBar.setLeftButtonVisible(false);
 		mBottomBar.setRightButtonVisible(true);
-		mBottomBar.setCenterButtonText(getString(R.string.text_redo_group));
+		if (mIsAutoGroup) {
+			mBottomBar.setCenterButtonText(getString(R.string.text_redo_group));
+		} else {
+			mBottomBar.setCenterButtonVisible(false);
+		}
 	}
 
 	private void doSaveGroup() {

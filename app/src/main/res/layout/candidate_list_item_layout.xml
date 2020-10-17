@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="horizontal"
+	android:padding="5dp"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:baselineAligned="false">
+
+	<!-- 第一个 -->
+	<RelativeLayout
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:paddingStart="5dp"
+		android:paddingEnd="5dp">
+
+		<RelativeLayout
+			android:id="@+id/candidate_1"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:paddingTop="10dp"
+			android:paddingBottom="10dp"
+			android:background="@drawable/candidate_bg"
+			android:focusable="true">
+
+			<TextView
+				android:id="@+id/candidate_1_name"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_centerInParent="true"
+				android:ellipsize="middle"
+				android:textSize="@dimen/member_name_size"
+				android:textColor="@color/member_name_color"
+				android:singleLine="true"/>
+
+		</RelativeLayout>
+
+	</RelativeLayout>
+
+	<!-- 第二个 -->
+	<RelativeLayout
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:paddingStart="5dp"
+		android:paddingEnd="5dp">
+
+		<RelativeLayout
+			android:id="@+id/candidate_2"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:paddingTop="10dp"
+			android:paddingBottom="10dp"
+			android:background="@drawable/candidate_bg"
+			android:focusable="true">
+
+			<TextView
+				android:id="@+id/candidate_2_name"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_centerInParent="true"
+				android:ellipsize="middle"
+				android:textSize="@dimen/member_name_size"
+				android:textColor="@color/member_name_color"
+				android:singleLine="true"/>
+
+		</RelativeLayout>
+
+	</RelativeLayout>
+
+	<!-- 第三个 -->
+	<RelativeLayout
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:paddingStart="5dp"
+		android:paddingEnd="5dp">
+
+		<RelativeLayout
+			android:id="@+id/candidate_3"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:paddingTop="10dp"
+			android:paddingBottom="10dp"
+			android:background="@drawable/candidate_bg"
+			android:focusable="true">
+
+			<TextView
+				android:id="@+id/candidate_3_name"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_centerInParent="true"
+				android:ellipsize="middle"
+				android:textSize="@dimen/member_name_size"
+				android:textColor="@color/member_name_color"
+				android:singleLine="true"/>
+
+		</RelativeLayout>
+
+	</RelativeLayout>
+
+</LinearLayout>

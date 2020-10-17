@@ -1,45 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
-	android:layout_width="@dimen/drawer_width"
+	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:background="@drawable/drawer_bg"
-	tools:ignore="RtlHardcoded">
+	android:orientation="vertical"
+	android:background="@android:color/white">
 
-	<Button
-		android:id="@+id/btn_export"
+	<!-- 顶部 -->
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/nav_header_height"
+		android:padding="@dimen/drawer_padding"
+		android:background="@drawable/side_nav_bar"
+		android:gravity="bottom"
+		android:orientation="vertical"
+		android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+		<ImageView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:contentDescription="@string/text_drawer_logo_desc"
+			app:srcCompat="@drawable/football" />
+
+		<TextView
+			android:id="@+id/main_title_view"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:paddingTop="@dimen/nav_header_vertical_spacing"
+			android:text="@string/text_drawer_main_title"
+			android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/text_drawer_sub_title" />
+
+	</LinearLayout>
+
+	<!-- 导入 -->
+	<LinearLayout
+		android:id="@+id/menu_import"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_alignParentBottom="true"
-		android:layout_marginBottom="10dp"
-		android:layout_marginLeft="10dp"
-		android:layout_marginRight="10dp"
-		android:background="@drawable/btn_green_bg"
-		android:textSize="16sp"
-		android:textColor="@color/normal_name_color"
-		android:text="@string/text_export" />
+		android:layout_marginTop="@dimen/drawer_padding"
+		android:padding="@dimen/drawer_padding"
+		android:orientation="horizontal"
+		android:gravity="center_vertical"
+		android:background="@drawable/menu_bg"
+		android:clickable="true"
+		android:focusable="true"
+		tools:ignore="UseCompoundDrawables">
 
-	<Button
-		android:id="@+id/btn_import"
+		<ImageView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:contentDescription="@string/text_import"
+			android:src="@drawable/ic_import"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="@dimen/drawer_padding"
+			android:text="@string/text_import"
+			android:textSize="@dimen/drawer_menu_size"
+			android:textColor="@android:color/black"/>
+
+	</LinearLayout>
+
+	<!-- 导出 -->
+	<LinearLayout
+		android:id="@+id/menu_export"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_above="@id/btn_export"
-		android:layout_marginBottom="10dp"
-		android:layout_marginLeft="10dp"
-		android:layout_marginRight="10dp"
-		android:background="@drawable/btn_green_bg"
-		android:textSize="16sp"
-		android:textColor="@color/normal_name_color"
-		android:text="@string/text_import" />
+		android:padding="@dimen/drawer_padding"
+		android:orientation="horizontal"
+		android:gravity="center_vertical"
+		android:background="@drawable/menu_bg"
+		android:clickable="true"
+		android:focusable="true"
+		tools:ignore="UseCompoundDrawables">
 
-	<TextView
-		android:id="@+id/version_code"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_above="@id/btn_import"
-		android:layout_centerHorizontal="true"
-		android:layout_marginBottom="16dp"
-		android:textSize="20sp"
-		android:textColor="@color/normal_name_color"/>
-</RelativeLayout>
+		<ImageView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:contentDescription="@string/text_export"
+			android:src="@drawable/ic_export"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="@dimen/drawer_padding"
+			android:text="@string/text_export"
+			android:textSize="@dimen/drawer_menu_size"
+			android:textColor="@android:color/black"/>
+
+	</LinearLayout>
+
+</LinearLayout>

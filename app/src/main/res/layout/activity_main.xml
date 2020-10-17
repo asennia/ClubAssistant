@@ -46,11 +46,12 @@
 			android:layout_below="@id/appbar"
 			android:layout_above="@id/bottom_bar"
 			app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
 	</RelativeLayout>
 
 	<include
 		layout="@layout/drawer_view"
-		android:layout_width="wrap_content"
+		android:layout_width="300dp"
 		android:layout_height="match_parent"
 		android:layout_gravity="start" />
 

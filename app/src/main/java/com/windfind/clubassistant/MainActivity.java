@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
 
 		createAndSetFragments();
 
-		Button btnImport = findViewById(R.id.btn_import);
+		View btnImport = findViewById(R.id.menu_import);
 		btnImport.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
 			}
 		});
 
-		Button btnExport = findViewById(R.id.btn_export);
+        View btnExport = findViewById(R.id.menu_export);
 		btnExport.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -143,8 +143,9 @@ public class MainActivity extends AppCompatActivity {
 		});
 
 		getVersionCode(getApplicationContext());
-		TextView verCodeView = findViewById(R.id.version_code);
-		verCodeView.setText(mVersionCode);
+		TextView verCodeView = findViewById(R.id.main_title_view);
+		String value = getString(R.string.text_drawer_main_title, mVersionCode);
+		verCodeView.setText(value);
 	}
 
 	private void createAndSetFragments() {

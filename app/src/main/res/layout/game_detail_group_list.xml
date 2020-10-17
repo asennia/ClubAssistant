@@ -12,7 +12,8 @@
 		android:id="@+id/bottom_bar"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		app:center_btn_text="@string/text_action_group"
+		app:left_btn_text="@string/text_action_group_manual"
+		app:center_btn_text="@string/text_action_group_auto"
 		app:right_btn_text="@string/text_complete"
 		android:layout_alignParentBottom="true" />
 

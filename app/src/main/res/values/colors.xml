@@ -4,6 +4,7 @@
 	<color name="colorPrimaryDark">#242426</color>
 	<color name="colorAccent">#FFF4A72B</color>
 
+	<color name="color_focused">#F6B9BB</color>
 	<color name="line_color">#60808080</color>
 	<color name="hint_color">#80808080</color>
 	<color name="color_base_info_bg">#203F51B5</color>

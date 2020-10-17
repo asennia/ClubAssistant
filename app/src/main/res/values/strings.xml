@@ -10,8 +10,6 @@
 	<string name="text_remove">删除</string>
 	<string name="text_complete">完成</string>
 	<string name="text_manage">管理</string>
-	<string name="text_import">导入</string>
-	<string name="text_export">导出</string>
 	<string name="text_ok">确定</string>
 	<string name="text_save">保存</string>
 	<string name="text_select_all">全选</string>
@@ -20,6 +18,11 @@
 	<string name="text_unselect_all">全不选</string>
 
 	<!-- Main -->
+	<string name="text_drawer_main_title">球队管家 %s</string>
+	<string name="text_drawer_sub_title">为了对足球的每一份热爱</string>
+	<string name="text_drawer_logo_desc">球队LOGO</string>
+	<string name="text_import">导入历史数据</string>
+	<string name="text_export">导出历史数据</string>
 	<string name="text_members">成员</string>
 	<string name="text_games">活动</string>
 	<string name="text_history">历史</string>
@@ -79,7 +82,8 @@
 	<string name="text_player_select">人员选择</string>
 	<string name="text_join_symbol">"、"</string>
 	<string name="text_game_detail">活动详情</string>
-	<string name="text_action_group">自动分组</string>
+	<string name="text_action_group_manual">手动分组</string>
+	<string name="text_action_group_auto">自动分组</string>
 	<string name="text_redo_group">重新分组</string>
 	<string name="symbol_dec">"—"</string>
 	<string name="symbol_inc">"+"</string>
@@ -90,6 +94,7 @@
 	<string name="text_out_of_group">未分组人员</string>
 	<string name="text_empty_group">尚未分组</string>
 	<string name="text_set_capacity_of_group">设置每组人数</string>
+	<string name="text_set_count_of_group">设置分组数量</string>
 
 	<!-- History -->
 	<string name="label_game_count">活动场次：</string>
